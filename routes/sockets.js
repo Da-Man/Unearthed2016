@@ -15,9 +15,9 @@ dataset1 = {"1101047CL1.CPV2": 474612, "3311FV380B.PV": "NULL", "3311FV690B.PV":
 
 
 function createQuery() {
-	variableList = ['SY21633A.MV', 'SY21633B.MV', 'SY21633C.MV', 'SY23005.MV', 'SY23015.MV', 'CR002RUN', 'CR003RUN', 'FD2003VSD.MV', 'FD2004VSD.MV', 'FD2005VSD.MV', 'SN2001.PV', 'SN2002.PV', 'FD2007VSD.MV', 'CV2010VSD.MV', '3311PI591.PV', '3311SI614B.PV', '3311SI614A.PV', '3311FV380B.PV', '3311ZI616.PV', '1101047CL1.CPV2', 'WIC22026.SV', 'SIC22371.MV', 'FI22302.PV', 'FI22310.PV', 'FI22963', 'FY22302CL2.CPV1', '3311FV690B.PV'];
-	query = ['SELECT "3311WI671.PV" FROM surge WHERE']
-
+	variableList = ["1101047CL1.CPV2", "3311FV380B.PV", "3311FV690B.PV", "3311PI591.PV", "3311SI614A.PV", "3311SI614B.PV", "3311ZI616.PV", "CR002RUN", "CR003RUN", "CV2010VSD.MV", "FD2003VSD.MV", "FD2004VSD.MV", "FD2005VSD.MV", "FD2007VSD.MV", "FI22302.PV", "FI22310.PV", "FI22963", "FY22302CL2.CPV1"];
+	queryPartOne = 'SELECT "3311WI671.PV" FROM surge WHERE '
+	query = [];
 	modifier = 0.05;
 
 	for (var i = 0; i < variableList.length; i++) {
@@ -30,7 +30,7 @@ function createQuery() {
 		query.push(query_line);
 	}
 
-	console.log(query);
+	console.log(queryPartOne + query.join(' AND ') + ';');
 
 	//return query;
 }
