@@ -3,21 +3,31 @@
   <head>
     <title>Project X</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
-  <body>
-  	<div class="row">
-  		<div class="col-md-6">
-  		</div>
-  		<div class="col-md-6">
-  		</div>
-  	</div>
-  	<div class="row">
-	  	<div class="col-md-3">
 
-	  	<div class="col-md-9">
+  <body class="container">
+    <div class="row">
+    
+      <section id="data" class="col">
+        <article>
+          <h4>Label</h4>
+          <p>100.832</p>
+        </article>
+        <article>
+          <h4>Label2</h4>
+          <p>200.832</p>
+        </article>
+        <article>
+          <h4>Label3</h4>
+          <p>300.832</p>
+        </article>
 
-	  	</div>
-	</div>
+        <input type="submit" value="Go!" id="btn">
+      </section>
+
+      <section id="perc" class="col1">
+        <p class="lol">69%</p>
+      </section>
+    </div>
   </body>
 </html>
