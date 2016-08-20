@@ -4,15 +4,15 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('harambe:server');
+var debug = require('debug')('TeamViewer:server');
 var http = require('http');
+var app = require('../app');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '8000');
 app.set('port', port);
 
 /**
@@ -24,6 +24,11 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
+var io = require('socket.io').listen(server);
+var socket = require('../routes/sockets')
+socket.run(io);
+
+
 
 server.listen(port);
 server.on('error', onError);
