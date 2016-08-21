@@ -1,15 +1,56 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project X</title>
+    <title>SPS</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
         <script src="/socket.io/socket.io.js"></script>
         <script type="text/javascript">
           $(document).ready(function(){
             var socket = io();
-            data  = [];
-            socket.emit('setQuery', data);
+            socket.emit('getData');
+
+
+            socket.on('recieveData', function(object) {
+                $('.lol').text(object.percentage + '%');
+                percentage = parseInt(object.percentage);
+                if (object.percentage <= 33) {
+                  $('.lol').css({
+                    'color' : '#52E634',
+                  })
+                  $('#perc').css({
+                    'background-color' : '#52E634',
+                  })
+                } else if (percentage >= 34 && percentage <= 67) {
+                  $('.lol').css({
+                    'color' : '#E6DB34',
+                  });
+                  $('#perc').css({
+                    'background-color' : '#E6DB34',
+                  });
+                } else {
+                   $('.lol').css({
+                    'color' : '#E63434',
+                  })
+
+                  $('#perc').css({
+                    'background-color': '#E63434',
+                  })
+                }
+
+
+                for (var i = 0; i < 19; i++) {
+                  textToAppend = object.data[$('#' + i + ' > h4').text()];
+                  $('#' + i + '> p').text(textToAppend);
+
+                }
+
+              });
+
+
+            $('#btn').click(function() {
+              socket.emit('getData');
+            });
           });
         </script>
   </head>
@@ -17,25 +58,90 @@
   <body class="container">
     <div class="row">
     
-      <section id="data" class="col">
-        <article>
-          <h4>Label</h4>
-          <p>100.832</p>
+      <section id="data" class="col" style="box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);">
+        <article id="1">
+          <h4>1101047CL1.CPV2</h4>
+          <p>100</p>
         </article>
-        <article>
-          <h4>Label2</h4>
+        <article id="2">
+          <h4>3311FV380B.PV</h4>
           <p>200.832</p>
         </article>
-        <article>
-          <h4>Label3</h4>
+        <article id="3">
+          <h4>3311FV690B.PV</h4>
           <p>300.832</p>
         </article>
-
-        <input type="submit" value="Go!" id="btn">
+        <article id="4">
+          <h4>3311PI591.PV</h4>
+          <p>300.832</p>
+        </article>
+        <article id="5">
+          <h4>3311SI614A.PV</h4>
+          <p>300.832</p>
+        </article>
+        <article id="6">
+          <h4>3311SI614B.PV</h4>
+          <p>300.832</p>
+        </article>
+        <article id="7">
+          <h4>3311ZI616.PV</h4>
+          <p>300.832</p>
+        </article>
+        <article id="8">
+          <h4>CR002RUN</h4>
+          <p>300.832</p>
+        </article>
+        <article id="9">
+          <h4>CR003RUN</h4>
+          <p>300.832</p>
+        </article>
+        <article id="10">
+          <h4>CV2010VSD.MV</h4>
+          <p>300.832</p>
+        </article>
+        <article id="11">
+          <h4>FD2003VSD.MV</h4>
+          <p>300.832</p>
+        </article>
+        <article id="12">
+          <h4>FD2004VSD.MV</h4>
+          <p>300.832</p>
+        </article>
+        <article id="13">
+          <h4>FD2005VSD.MV</h4>
+          <p>300.832</p>
+        </article>
+        <article id="14">
+          <h4>FD2007VSD.MV</h4>
+          <p>300.832</p>
+        </article>
+        <article id="15">
+          <h4>FI22302.PV</h4>
+          <p>300.832</p>
+        </article>
+        <article id="16">
+          <h4>FI22310.PV</h4>
+          <p>300.832</p>
+        </article>
+        <article id="17">
+          <h4>FI22963</h4>
+          <p>300.832</p>
+        </article>
+        <article id="18">
+          <h4>FY22302CL2.CPV1</h4>
+          <p>300.832</p>
+        </article>
+        <input type="submit" value="Random" id="btn">
       </section>
+      
 
       <section id="perc" class="col1">
-        <p class="lol">69%</p>
+        <div class="circle">  
+        </div>
+        <p class="lol">100%</p>
       </section>
+
+      <p id="team">BunchOfMinors | Unearthed 2K16</p>
     </div>
+  </body>
 </html>

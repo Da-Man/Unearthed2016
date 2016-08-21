@@ -30,25 +30,75 @@ a {
 	color: white;
 	height: 100vh;
 	text-indent: 25px;
+	overflow-y: auto;
+	height: 100vh;
+	position: relative;
 }
 
 #data article{
 	margin-bottom: 10px;
-	border-bottom: 1px solid white;
+	border-bottom: 1px solid grey;
+}
+
+#data article h4{ 
+	margin-bottom: 0;
+	font-size: 12px;
+}
+
+#data article p{ 
+	margin-top: 5px;
+	background-color: white;
+	color: #434343;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	width: 30vw;
+	margin-left: 25px;
+	border-radius: 3px;
+	font-size: 14px;
 }
 
 #btn {
+	border: 0;
+	width: 35vw;
+	height: 10vh;
+	font-size: 20px;
+	background-color: #32CE47;
+	color: white;
+	position: fixed;
+    bottom: 0;
+}
+
+#btn:hover {
+	background-color: #26A838;
 }
 
 #perc {
 	background-color: white;
-	height: 100vh;
 	text-align: center;
+	background-color: #E63434;
+}
+
+.circle {
+	background-color: white;
+	border-radius: 50%;
+	height: 60vh;
+	margin-left: 255px;
+	margin-right: 255px;
+	margin-top: 150px;
 }
 
 .lol {
 	font-size: 150px;
 	color: #E63434;
+	margin-top: -380px;
+}
+
+#team {
+	position: fixed;
+	bottom: 0;
+	right: 20px;
+	font-size: 12px;
+	color: grey;
 }
 
 
